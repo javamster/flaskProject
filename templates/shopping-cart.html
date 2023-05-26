@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='shopping-cart.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='shopping-cart.js') }}"></script>
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar">
+        <a href="{{ url_for('product_list') }}">Product List</a>
+        <a href="{{ url_for('homepage') }}">Homepage</a>
+        <a href="{{ url_for('shopping_cart') }}">My Shopping Cart</a>
+        <a href="{{ url_for('message_center') }}">Message Center</a>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+    </nav>
+
+<div class="products-container">
+    {% for item in cart %}
+    <div class="product-row">
+        <div class="image-container">
+            <img src="{{ item.imgSrc }}" alt="Product Image">
+        </div>
+        <div class="product-info">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.price }} x {{ item.quantity }}</p>
+        </div>
+        <div class="buttons">
+            <button class="remove-btn" data-product-name="{{ item.id }}">Remove</button>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+<div class="settlement-container">
+    <button class="settlement-btn">Settlement</button>
+</div>
+
+
+</body>
+</html>

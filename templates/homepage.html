@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <!-- <link rel="stylesheet" href="homepage.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='homepage.css') }}">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="homepage.js"></script> -->
+    <script src="{{ url_for('static', filename='homepage.js') }}"></script>
+
+</head>
+<body>
+
+<!-- navbar -->
+  <nav class="navbar">
+    <a href="{{ url_for('product_list') }}">Product List</a>
+    <a href="{{ url_for('homepage') }}">Homepage</a>
+    <a href="{{ url_for('shopping_cart') }}">My Shopping Cart</a>
+    <a href="{{ url_for('message_center') }}">Message Center</a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <button>Search</button>
+    </div>
+  </nav>
+
+
+    <h1 class="title">Homepage</h1>
+
+    <div class="info-row">
+        <label>Name:</label>
+        <input type="text" class="name-input" value="" />
+        <button class="confirm-btn">Confirm</button>
+    </div>
+
+    <div class="info-row">
+        <label>Address:</label>
+        <input type="text" class="address-input" value="" />
+        <button class="confirm-btn">Confirm</button>
+    </div>
+
+    <div class="info-row">
+        <label>Phone Number:</label>
+        <input type="text" class="phone-input" value="" />
+        <button class="confirm-btn">Confirm</button>
+    </div>
+    <div class="info-row">
+        <label>Email</label>
+        <input type="text" class="email-input" value="" />
+        <button class="confirm-btn">Confirm</button>
+    </div>
+
+    <div>
+        <h2>My Order:</h2>
+        <div id="order-list">
+  <!-- 订单信息将会在这里显示 -->
+</div>
+
+    </div>
+<button class="logout-button" onclick="location.href='{{ url_for('logout') }}'">Logout</button>
+
+</body>
+</html>

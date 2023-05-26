@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='product.css') }}">
+</head>
+<body>
+<input type="hidden" id="product-id" value="{{ product.id }}" />
+
+  <!-- navbar -->
+  <nav class="navbar">
+    <a href="{{ url_for('product_list') }}">Product List</a>
+    <a href="{{ url_for('homepage') }}">Homepage</a>
+    <a href="{{ url_for('shopping_cart') }}">My Shopping Cart</a>
+    <a href="{{ url_for('message_center') }}">Message Center</a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <button>Search</button>
+    </div>
+  </nav>
+
+  <!-- product details -->
+  <div class="product">
+    <div class="product-image">
+      <img src="{{ url_for('static', filename=product.imgSrc) }}" alt="Product Image">
+    </div>
+    <div class="product-details">
+      <h2 class="product-name">{{ product.name }}</h2>
+        <input type="hidden" id="product-name" value="{{ product.name }}">
+      <div class="product-price">
+        <!-- Modify the price here based on your data -->
+        <a href="#" id="type1" class="price-type">{{ product.price }}</a>
+          <!-- Discounted price -->
+  <a href="#" id="type2" class="discount-price"></a>
+      </div>
+
+      <div class="product-buttons">
+       <div class="quantity">
+    <button class="btn-minus needs-login">-</button>
+    <input type="text" class="input-quantity" value="1">
+    <button class="btn-plus needs-login">+</button>
+</div>
+        <button class="btn-buy-now needs-login">Buy Now</button>
+<button class="btn-add-to-cart needs-login">Add to Cart</button>
+      </div>
+      <div class="product-feedback">
+<button class="btn-like needs-login" data-product-name="{{ product.name }}">
+    Like <span class="like-count">{{ product.like_count }}</span>
+</button>
+<button class="btn-dislike needs-login" data-product-name="{{ product.name }}">
+    Dislike <span class="dislike-count">{{ product.dislike_count }}</span>
+</button>
+
+
+
+      </div>
+      <div class="product-description">
+        {{ product.desc }}
+      </div>
+      <div class="product-origin">
+        Origin:china
+      </div>
+    </div>
+  </div>
+
+  <!-- comments section -->
+  <h2>User Comments on This Product</h2>
+<!-- 其他的 HTML 代码 -->
+
+<h2>Comments</h2>
+{% for comment in comments %}
+<div class="comment" id="comment-list">
+    <p><strong>{{ comment.username }}</strong> said:</p>
+    <p>{{ comment.comment }}</p>
+</div>
+{% endfor %}
+
+
+<div class="comment-section">
+  <input type="text" id="comment-input" placeholder="Enter your comment">
+  <button id="submit-comment-btn" class="needs-login">Submit</button>
+</div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{{ url_for('static', filename='product.js') }}"></script>
+</body>
+</html>
+

@@ -1,0 +1,54 @@
+body {
+    background-image: url('registration.jpg');
+    background-size: cover;
+    background-position: center;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+/*.left {*/
+/*    width: 50%;*/
+/*    height: 100%;*/
+/*    background-image: url('../images/your-image-url.jpg');*/
+/*    background-size: cover;*/
+/*    background-position: center;*/
+/*}*/
+.right {
+    width: 50%;
+    padding: 40px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+.radio-group {
+    display: flex;
+    align-items: center;
+}
+.radio-label {
+    margin-right: 10px;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.cancel {
+    margin-left: 10px;
+}

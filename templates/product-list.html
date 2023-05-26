@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product List</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='product-list.css') }}">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- <script src="script.js"></script> -->
+  <script src="{{ url_for('static', filename='product-list.js') }}"></script>
+
+</head>
+<body>
+  <!-- <h1 class="page-title">Product List</h1> -->
+    <!-- navbar -->
+  <nav class="navbar">
+    <a href="{{ url_for('product_list') }}">Product List</a>
+    <a href="{{ url_for('homepage') }}">Homepage</a>
+    <a href="{{ url_for('shopping_cart') }}">My Shopping Cart</a>
+    <a href="{{ url_for('message_center') }}">Message Center</a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <button>Search</button>
+    </div>
+  </nav>
+
+    <h2 class="categories-title">Categories</h2>
+  <div class="categories-container">
+    <button class="category">jewelry</button>
+    <button class="category">clothes</button>
+    <button class="category">shoes</button>
+    <button class="category">sport</button>
+    <input type="text" class="search-categories" placeholder="Search categories">
+    <input type="range" min="1" max="100" value="100" class="slider" orient="vertical">
+  </div>
+  <div class="product-list">
+    <!-- Add product items here -->
+  </div>
+<h2>Upload a new product</h2>
+<form id="product-upload-form">
+    <label for="discount">Discount:</label><br>
+<input type="number" id="discount" name="discount" min="0" max="1" step="0.01"><br>
+
+  <label for="name">Product Name:</label><br>
+  <input type="text" id="name" name="name"><br>
+  <label for="category">Category:</label><br>
+  <input type="text" id="category" name="category"><br>
+  <label for="desc">Description:</label><br>
+  <input type="text" id="desc" name="desc"><br>
+  <label for="price">Price:</label><br>
+  <input type="text" id="price" name="price"><br>
+  <label for="imgSrc">Image URL:</label><br>
+  <input type="text" id="imgSrc" name="imgSrc"><br>
+  <input type="submit" value="Submit">
+</form>
+</body>
+</html>

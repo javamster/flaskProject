@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+
+</head>
+<body>
+
+ <!-- navbar -->
+  <nav class="navbar">
+    <a href="{{ url_for('product_list') }}">Product List</a>
+    <a href="{{ url_for('homepage') }}">Homepage</a>
+    <a href="{{ url_for('shopping_cart') }}">My Shopping Cart</a>
+    <a href="{{ url_for('message_center') }}">Message Center</a>
+    <div class="search-bar">
+      <input type="text" placeholder="Search...">
+      <button>Search</button>
+    </div>
+  </nav>
+
+
+  <!-- product details -->
+  <div class="product">
+    <div class="product-image"></div>
+    <div class="product-details">
+      <h2 class="product-name">Product Name</h2>
+      <div class="product-price">
+  <a href="#" id="type1" class="price-type"><a href="#" class="price-type" data-price="$100">Type 1 (Price)</a>
+    <a href="#" class="price-type" data-price="$200">Type 2 (Price)</a>
+    <a href="#" class="price-type" data-price="$300">Type 3 (Price)</a>
+</div>
+
+      <div class="product-buttons">
+        <div class="quantity">
+          <button class="btn-minus">-</button>
+          <input type="text" class="input-quantity" value="1">
+          <button class="btn-plus">+</button>
+        </div>
+        <button class="btn-buy-now">Buy Now</button>
+        <button class="btn-add-to-cart">Add to Cart</button>
+      </div>
+      <div class="product-feedback">
+        <button class="btn-like">
+          Like <span class="like-count">0</span>
+        </button>
+        <button class="btn-dislike">
+          Dislike <span class="dislike-count">0</span>
+        </button>
+      </div>
+      <div class="product-description">
+        Product Description
+      </div>
+      <div class="product-origin">
+        Origin
+      </div>
+    </div>
+  </div>
+
+  <!-- comments section -->
+  <h2>User Comments on This Product</h2>
+  <div id="comment-list">
+    <div class="user-comment">
+      <span class="user-id">John</span>: This watch is amazing! I love the design and it works great.
+    </div>
+    <div class="user-comment">
+      <span class="user-id">Emily</span>: I bought this watch as a gift for my husband and he loves it! It's sleek and stylish, and he gets compliments all the time.
+    </div>
+    <div class="user-comment">
+      <span class="user-id">David</span>: The price for this watch is a bit high, but the quality is definitely worth it. I wear it every day and it still looks like new.
+    </div>
+  </div>
+  <div class="comment-input">
+    <input type="text" id="comment-input">
+    <button id="send-btn">Send</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script src="{{ url_for('static', filename='index.js') }}"></script>
+
+</body>
+</html>
